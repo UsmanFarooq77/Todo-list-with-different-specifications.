@@ -1,0 +1,50 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 5px;
+}
+th {
+  text-align: center;
+}
+.add-more-list-btn {
+  background-color: #1976d2;
+  color: white;
+  width: 180px;
+  cursor: pointer;
+  padding: 5px;
+  margin: 7px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-family: "Times New Roman", Times, serif;
+}
+.add-more-list-btn:hover {
+  border: 2px solid black;
+  background-color: white;
+  color: rebeccapurple;
+  width: 200px;
+  cursor: pointer;
+}
+.form {
+  display: flex;
+}
+.form-array-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.form-array-list input {
+  margin: 5px;
+}
+.submit-btn {
+  width: 116px;
+  margin: 0 auto;
+}
+.delete-list-btn {
+  width: 50%;
+  padding: 5px;
+}

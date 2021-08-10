@@ -1,0 +1,42 @@
+<div>
+    <button class="add-more-list-btn" (click)="addMoreList()">Add More List</button>
+    <form class="form" [formGroup]="todoListForm" (ngSubmit)="saveTodoListForm(todoListForm)">
+        <div class="form-array-list" formArrayName="formArrayListItems">
+            <ng-container *ngIf="formArrayListItems.controls != null">
+                <div *ngFor="let items of formArrayListItems.controls; let i = index">
+                    <div [formGroupName]="i">
+                        <input type="text" formControlName="fullName" placeholder="Full Name">
+                        <input type="email" formControlName="email" placeholder="Email">
+                        <input type="password" formControlName="password" placeholder="Password">
+                        <button [disabled]="formArrayListItems.length == 1" (click)="removeList(i)">
+                            <i class="fa fa-window-close" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </ng-container>
+            <button class="submit-btn" [disabled]="todoListForm.invalid" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<div>
+    <table style="margin-top: 20px; width: 100%;">
+        <thead>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let listItem of cloneListItems let i=index">
+                <td>{{listItem.fullName}}</td>
+                <td>{{listItem.email}}</td>
+                <td>{{listItem.password}} </td>
+                <td style="text-align: center;">
+                    <button class="delete-list-btn" (click)="deleteListData(i)">
+                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
